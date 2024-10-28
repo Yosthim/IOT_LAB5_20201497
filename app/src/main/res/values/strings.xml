@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">IOT_LAB5_20201497</string>
+    <string-array name="actividad_nivel">
+        <item>Sedentario</item>
+        <item>Ligeramente Activo</item>
+        <item>Moderadamente Activo</item>
+        <item>Muy Activo</item>
+    </string-array>
+</resources>
