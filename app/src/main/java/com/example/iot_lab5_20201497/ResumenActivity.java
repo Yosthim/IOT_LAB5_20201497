@@ -47,6 +47,13 @@ public class ResumenActivity extends AppCompatActivity {
                 double caloriasComida = Double.parseDouble(caloriasComidaStr);
                 caloriasConsumidas += caloriasComida;
                 tvCaloriasConsumidas.setText(String.format("%.2f", caloriasConsumidas));
+
+                // Actualizar las calorías restantes
+                double caloriasRestantes = caloriasRecomendadas - caloriasConsumidas;
+                if (caloriasRestantes < 0) {
+                    caloriasRestantes = 0.0;
+                }
+                tvCaloriasRestantes.setText(String.format("%.2f", caloriasRestantes));
             }
         });
 
