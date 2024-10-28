@@ -1,5 +1,6 @@
 package com.example.iot_lab5_20201497;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Spinner spNivelActividad;
     private Spinner spObjetivo;
     private TextView tvResultadoCalorias;
+    private double caloriasRecomendadas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
         // Configurar el botón de calcular
         Button btnCalcular = findViewById(R.id.btnCalcular);
         btnCalcular.setOnClickListener(v -> calcularCalorias());
+
+        // Configurar el botón de continuar
+        Button btnIrResumen = findViewById(R.id.btnIrResumen);
+        btnIrResumen.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ResumenActivity.class);
+            intent.putExtra("caloriasRecomendadas", caloriasRecomendadas);
+            startActivity(intent);
+        });
     }
 
     private void calcularCalorias() {
@@ -64,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Multiplicador según el nivel de actividad
-        double calorias = getCalorias(nivelActividad, objetivo, tmb);
-        tvResultadoCalorias.setText(String.format("%.2f", calorias));
+        caloriasRecomendadas = getCalorias(nivelActividad, objetivo, tmb);
+        tvResultadoCalorias.setText(String.format("%.2f", caloriasRecomendadas));
     }
 
     private static double getCalorias(String nivelActividad, String objetivo, double tmb) {
