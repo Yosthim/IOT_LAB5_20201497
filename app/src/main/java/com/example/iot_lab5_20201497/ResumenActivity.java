@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class ResumenActivity extends AppCompatActivity {
 
-    private TextView tvCaloriasRecomendadas, tvCaloriasConsumidas;
+    private TextView tvCaloriasRecomendadas, tvCaloriasConsumidas, tvCaloriasRestantes;
     private EditText etCaloriasComida;
     private double caloriasConsumidas = 0.0;
     private double caloriasRecomendadas = 0.0;
@@ -32,6 +32,7 @@ public class ResumenActivity extends AppCompatActivity {
         // Capturar a los elementos de la vista
         tvCaloriasRecomendadas = findViewById(R.id.tvCaloriasRecomendadas);
         tvCaloriasConsumidas = findViewById(R.id.tvCaloriasConsumidas);
+        tvCaloriasRestantes = findViewById(R.id.tvCaloriasRestantes);
         etCaloriasComida = findViewById(R.id.etCaloriasComida);
         Button btnAgregarComida = findViewById(R.id.btnAgregarComida);
 
@@ -48,5 +49,10 @@ public class ResumenActivity extends AppCompatActivity {
                 tvCaloriasConsumidas.setText(String.format("%.2f", caloriasConsumidas));
             }
         });
+
+        // Actualizar las calorías restantes
+        double caloriasRestantes = caloriasRecomendadas - caloriasConsumidas;
+        tvCaloriasRestantes.setText(String.format("%.2f", caloriasRestantes));
+
     }
 }
