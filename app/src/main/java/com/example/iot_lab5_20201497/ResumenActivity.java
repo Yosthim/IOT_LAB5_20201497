@@ -52,6 +52,9 @@ public class ResumenActivity extends AppCompatActivity {
 
         // Actualizar las calorías restantes
         double caloriasRestantes = caloriasRecomendadas - caloriasConsumidas;
+        if (caloriasRestantes < 0) {
+            caloriasRestantes = 0.0;
+        }
         tvCaloriasRestantes.setText(String.format("%.2f", caloriasRestantes));
 
     }
