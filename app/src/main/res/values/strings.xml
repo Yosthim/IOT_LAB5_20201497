@@ -10,7 +10,7 @@
 
     <string-array name="objetivo">
         <item>Bajar de peso</item>
-        <item>SUbir de peso</item>
+        <item>Subir de peso</item>
         <item>Mantener peso</item>
     </string-array>
 </resources>
